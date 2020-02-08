@@ -1,9 +1,9 @@
-var userIngredient = "gin"
-var drinkName = "margarita"
+var userIngredient;
+var drinkName;
 
-var ingredientQuery = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient
-var drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
-var randomDrinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+var ingredientQuery;
+var drinkNameQuery;
+var randomDrinkQuery;
 
 function searchByIngredient() {
     userIngredient = $("#ingredientNameInput").val().trim()
@@ -45,7 +45,7 @@ function searchByIngredient() {
                     }
                 }
     
-                $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+                $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>" + "<button class='button'>click for videos</button>"))
     
             })
         })
