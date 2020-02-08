@@ -13,6 +13,23 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </head>
 <body>
+
+    <h5>Serch by Ingredient</h5>
+    <input type="text" id="ingredientNameInput">
+    <button id="byIngredientSubmit" class="btn btn-outline-secondary" type="button">Search</button>
+
+
+    <h5>This is the select wheel</h5>
+    <div class="input-group">
+        <select id="drinkSelector" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+          <option selected>Choose a drink...</option>
+        </select>
+        <div class="input-group-append">
+          <button id="submitOptionButton" class="btn btn-outline-secondary" type="button">Go</button>
+        </div>
+      </div>
+
+      <div id="drinkOutput"></div>
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
