@@ -32,7 +32,6 @@ function searchByIngredient() {
                 console.log(drinkResponse.drinks[0]);
     
                 $("#drinkOutput").empty()
-                $("#youtubeVids").empty()
     
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))

@@ -1,10 +1,7 @@
 //the click for the search button
 function goBtn(e) {
     e.preventDefault();
-    //the number of videos to be displayed
-    var resultNum = 3;
-    //shows the  how many videos button
-    $(".buttonContainer").show();
+    $("#youtubeVids").empty()
     var searchResult = "how to make " + $(".drinkNameForYoutube").text() + " drink";
     console.log(searchResult);
     showResults();
@@ -13,7 +10,7 @@ function goBtn(e) {
     function showResults() {
      
         //the url for the api call
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchResult + "&type=video&maxResults=" + resultNum + "&videoDuration=short&key=AIzaSyBXAu5ym186De_Z68aG2K7Hz76ZeN88nqw"
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchResult + "&type=video&maxResults=4&videoDuration=short&key=AIzaSyBXAu5ym186De_Z68aG2K7Hz76ZeN88nqw"
         console.log(queryURL);
 
         $.ajax({
@@ -28,9 +25,7 @@ function goBtn(e) {
             var results = resp.items
             console.log(results);
             console.log(resp);
-            clear();
             for (var i = 0; i < results.length; i++) {
-
 
                 var vidId = results[i].id.videoId;
                 console.log(vidId);
@@ -55,13 +50,9 @@ function goBtn(e) {
 
             }
 
-        });
+        })
    
     }
-   
-    function clear() {
-        $("#youtubeVids").empty();
-    }
-    $(document).on("click", ".clear", clear);
-};
+
+}
 $(document).on("click", "#submitOptionButton", goBtn);
