@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Got Drinks?</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Got Drinks?</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </head>
+
 <body>
 
-  <h3>Input your ingredient:</h3>
-    <input id="ingredientNameInput">
-    <button id="byIngredientSubmit" class="btn btn-outline-secondary" type="button">Search</button>
-    
-    <div class="input-group">
-        <select id="drinkSelector" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+  <header>
+    <p>Navbar</p>
+  </header>
+
+  <section class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p>placeholder image</p>
+      </div>
+      <div class="col-md-4">
+        <p>placeholder image</p>
+      </div>
+      <div class="col-md-4">
+        <p>placeholder image</p>
+      </div>
+  </section>
+
+  <section class="row">
+
+    <div id="drinkDisplay" class="col-md-6">
+
+      <div id="ingredientInput">
+        <h3>Input your ingredient:</h3>
+          <input id="ingredientNameInput">
+          <button id="byIngredientSubmit" class="btn btn-outline-secondary" type="button">Search</button>
+      </div>
+
+      <div id="optionWheel">
+        <select id="drinkSelector" class="custom-select" id="inputGroupSelect04"
+          aria-label="Example select with button addon">
           <option selected>Choose a drink...</option>
         </select>
         <div class="input-group-append">
@@ -28,11 +54,25 @@
       </div>
 
       <div id="drinkOutput"></div>
-      <div id="youtubeVids"></div>
+      
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/drinkAPI.js"></script>
-    <script src="assets/js/youtubeAPI.js"></script>
-    <script src="assets/js/firebase.js"></script>
+    <div id="youtubeVids" class="col-md-6">
+      <p>placeholder youtube videos</p>
+    </div>
+  </section>
+
+  
+
+
+
+  <div id="drinkOutput"></div>
+  <div id="youtubeVids"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/js/drinkAPI.js"></script>
+  <script src="assets/js/youtubeAPI.js"></script>
+  <script src="assets/js/firebase.js"></script>
 </body>
+
 </html>

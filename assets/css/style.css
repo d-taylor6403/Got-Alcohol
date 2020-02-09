@@ -1,21 +1,45 @@
 /* =================================
             Header
 ================================= */
-
+header {
+    height: 75px;
+    background-color: orange;
+    text-align: center;
+}
 
 
 /* =================================
             Body
 ================================= */
-
+.container {
+    text-align: center;
+}
 
 
 /* =================================
             Drinks Display
 ================================= */
+#drinkDisplay,
+#youtubeVids {
+    padding: 5%;   
+}
+
+#ingredientInput {
+    margin: 0 25% 2% 25%;
+}
+
+#optionWheel {
+    width: 30%;
+    margin: 0 25%;
+}
+
+
+
 .video, .card{
     width: 350px;
     height: 350px;
+    float: left;
+    margin: 1%;
 }
 
 
