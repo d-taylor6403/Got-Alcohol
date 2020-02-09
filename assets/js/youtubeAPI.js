@@ -1,6 +1,3 @@
-//hides the how many videos buttons
-$(".buttonContainer").hide();
-
 //the click for the search button
 function goBtn(e) {
     e.preventDefault();
@@ -8,37 +5,6 @@ function goBtn(e) {
     var resultNum = 3;
     //shows the  how many videos button
     $(".buttonContainer").show();
-    //onclick of one of the buttons
-    // $(".btn").on("click", function () {
-    //     //set the number back to 0
-    //     resultNum = 0;
-    //     //stores the value of the button clicked
-    //     var btnClicked = $(this).val();
-    //     //if the button clicked value is 1 (3 videos)
-    //     if (btnClicked === "1") {
-    //         //set the the number to 3
-    //         resultNum = 3;
-    //         //call the show results function
-    //         showResults()
-    //         //hide the buttons
-    //         $(".buttonContainer").hide();
-    //     }
-    //     //if the button clicked value is 2 (5 videos)
-    //     else if (btnClicked === "2") {
-    //         resultNum = 5;
-    //         showResults()
-    //         $(".buttonContainer").hide();
-    //     }
-    //     //if the button clicked value is 3 (10 videos)
-    //     else {
-    //         resultNum = 10;
-    //         showResults()
-    //         $(".buttonContainer").hide();
-    //     }
-    // });
-    //the value of the search input
-    //set to "javascript" for testion
-   
     var searchResult = "how to make " + $(".drinkNameForYoutube").text() + " drink";
     console.log(searchResult);
     showResults();
@@ -62,7 +28,7 @@ function goBtn(e) {
             var results = resp.items
             console.log(results);
             console.log(resp);
-          // clear();
+            clear();
             for (var i = 0; i < results.length; i++) {
 
 
@@ -86,26 +52,16 @@ function goBtn(e) {
                 //puts it all togther for the final card
                 card.prepend(cardbody)
                 $("#youtubeVids").append(card)
-                var clearBtn = $("<button>" + "clear" + "</button>")
-                clearBtn.attr("class", "clear")
 
             }
 
-            $(".#youtubeVids").append(clearBtn)
-
         });
    
-        
-
     }
    
-
     function clear() {
-
-        $(".#youtubeVids").empty();
-        $(".clear").empty();
-
+        $("#youtubeVids").empty();
     }
     $(document).on("click", ".clear", clear);
 };
-$(document).on("click", ".button", goBtn);
+$(document).on("click", "#submitOptionButton", goBtn);

@@ -1,6 +1,5 @@
 var userIngredient;
 var drinkName;
-
 var ingredientQuery;
 var drinkNameQuery;
 var randomDrinkQuery;
@@ -33,6 +32,7 @@ function searchByIngredient() {
                 console.log(drinkResponse.drinks[0]);
     
                 $("#drinkOutput").empty()
+                $("#youtubeVids").empty()
     
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
@@ -45,7 +45,7 @@ function searchByIngredient() {
                     }
                 }
     
-                $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>" + "<button class='button'>click for videos</button>"))
+                $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
     
             })
         })
@@ -67,10 +67,10 @@ function searchByName() {
         $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
 
         for (var x = 1; x < 16; x++) {
-            if ((drinkResponse.drinks[0].strIngredient + x) !== null && (drinkResponse.drinks[0].strMeasure + x) !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0].strMeasure + x) + " of " + (drinkResponse.drinks[0].strIngredient + x) + "</p>")
-            } else if ((drinkResponse.drinks[0].strIngredient + x) !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + (drinkResponse.drinks[0].strIngredient + x) + "</p>"))
+            if (drinkResponse.drinks[0]["strIngredient" + x] !== null && drinkResponse.drinks[0]["strMeasure" + x] !== null) {
+                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strMeasure" + x] + " of " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
+            } else if (drinkResponse.drinks[0]["strIngredient" + x] !== null) {
+                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
             }
         }
 
@@ -92,10 +92,10 @@ function randomDrink() {
         $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
 
         for (var x = 1; x < 16; x++) {
-            if ((drinkResponse.drinks[0].strIngredient + x) !== null && (drinkResponse.drinks[0].strMeasure + x) !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0].strMeasure + x) + " of " + (drinkResponse.drinks[0].strIngredient + x) + "</p>")
-            } else if ((drinkResponse.drinks[0].strIngredient + x) !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + (drinkResponse.drinks[0].strIngredient + x) + "</p>"))
+            if (drinkResponse.drinks[0]["strIngredient" + x] !== null && drinkResponse.drinks[0]["strMeasure" + x] !== null) {
+                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strMeasure" + x] + " of " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
+            } else if (drinkResponse.drinks[0]["strIngredient" + x] !== null) {
+                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
             }
         }
 
