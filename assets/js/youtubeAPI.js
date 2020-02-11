@@ -10,7 +10,7 @@ function goBtn(e) {
     function showResults() {
      
         //the url for the api call
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchResult + "&type=video&maxResults=4&videoDuration=short&key=AIzaSyBXAu5ym186De_Z68aG2K7Hz76ZeN88nqw"
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchResult + "&type=video&maxResults=4&videoDuration=short&key=AIzaSyAbn6xhyx5K-gAjMIqXng_g7S1pSx8XOnQ"
         console.log(queryURL);
 
         $.ajax({
@@ -55,4 +55,4 @@ function goBtn(e) {
     }
 
 }
-$(document).on("click", "#submitOptionButton", goBtn);
+$(document).on("click", ".goBtn", goBtn);

@@ -9,66 +9,132 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
 </head>
 <body>
 
     <header>
-        <p>Navbar</p>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Got Alcohol?</a>
+
+            <!--Signup Button with Dropdown-->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="sign-up" data-toggle="dropdown">
+                  Sign-Up
+                </button>
+                <form id="user-signup" class="dropdown-menu p-4" aria-labelledby="sign-up">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="inputPassword">
+                      </div>
+              
+                      <button id="signup-submit" type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </div>
+            
+            <!--Login Button with dropdown-->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </button>
+                <form id="login-div" class="dropdown-menu p-4">
+                    <div class="main-div">
+                        <h6>Enter Your Email and Password</h6>
+                        <input type="email" id="email-field" placeholder="Email" />
+                        <input type="password" id="password-field" placeholder="Password" />
+                        
+                        <button id="login-submit" type="submit" class="btn btn-danger">Login</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!--LoggedIn Div-->
+            <div id="user-div" class="loggedin-div">
+                <button class="btn btn-secondary " id="logout-submit">Logout</button>
+            </div>
+
+            <!--Name Display-->
+            <div class="text-light" id="user-para">
+                <p></p>
+            </div>
+
+        </nav>
     </header>
     
     <div class="container">
-        <section class="row" id="selectorImages">
 
-            <div class="col-md-4">
-                <div id="ingredientName">
-                    <h2>Search by Ingredient</h2>
-                </div>
-            </div>
+        <section id="ingredientSelectorHolder" class="row">
+            <div class="col-md-6">
 
-            <div class="col-md-4">
-                <div id="drinkName">
-                    <h2>Search by Drink Name</h2>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div id="randomDrink">
-                    <h2>Random Drink</h2>
-                </div>
-            </div>
-
-        </section>
-    
-
-        <section id="drinkSelectorHolder" class="row">
-            <div class="col-md-12">
-
-                <div id="ingredientInput">
-                    <h4>Input your ingredient:</h4>
+                <h4>Input your ingredient:</h4>
+                <div id="ingredientInput" class="input-group mb-3">
                     <input id="ingredientNameInput">
                     <button id="byIngredientSubmit" class="btn btn-outline-secondary" type="button">Search</button>
                 </div>
+            </div>
 
-                <div id="optionWheel">
-                    <select id="drinkSelector" class="custom-select" id="inputGroupSelect04"
-                        aria-label="Select your drink">
-                        <option selected>Choose a drink...</option>
-                    </select>
-                    <button id="submitOptionButton" class="btn btn-outline-secondary" type="button">Go</button>
+            <div class="col-md-6">
+
+                <h4>Specify:</h4>
+                <div class="input-group mb-3 optionWheel">
+                    <select id="ingredientDrinkSelector" class="custom-select" id="inputGroupSelect04"
+                        aria-label="Select your drink"></select>
+                    <button class="btn btn-outline-secondary goBtn" type="button">Go</button>
                 </div>
+
+            </div>
+        </section>
+
+        <section id="drinkSelectorHolder" class="row">
+            <div class="col-md-6">
+
+                <h4>Input your drink name:</h4>
+                <div id="drinkInput" class="input-group mb-3">
+                    <input id="drinkNameInput">
+                    <button id="byDrinkNameSubmit" class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <h4>Specify:</h4>
+                <div class="input-group mb-3 optionWheel">
+                    <select id="drinkSelector" class="custom-select" id="inputGroupSelect04"
+                        aria-label="Select your drink"></select>
+                    <button class="btn btn-outline-secondary goBtn" type="button">Go</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="randomDrinkHolder" class="row">
+            <div class="col-md-12">
+
+                <button id="randomDrink" class="btn btn-outline-secondary goBtn">Click for a Random Drink</button>
 
             </div>
         </section>
 
         <section class="row">
 
-            <div id="drinkOutput" class="col-md-6">
-                <p>placeholder drink output</p>
+            <div id="drinks" class="col-md-6">
+                <h3>Drink Info</h3>
+                <div id="drinkOutput">
+                    
+                </div>
             </div>
 
-            <div id="youtubeVids" class="col-md-6">
-                <p>placeholder youtube videos</p>
+            <div id="vids" class="col-md-6">
+                <h3>Youtube Videos</h3>
+                <div id="youtubeVids">
+                    
+                </div>
             </div>
 
         </section>
@@ -76,7 +142,7 @@
     </div>
 
     <footer>
-        <p>Created by: <a href="https://github.com/austindickey" target="_blank">Austin Dickey</a>, <a href="https://github.com/JacobTate" target="_blank">Jacob Tate</a>, <a href="https://github.com/d-taylor6403" target="_blank">Dannielle Taylor</a>, and <a href="https://github.com/Conqure" target="_blank">Jacob Walters</a></p>
+        <p>Created by: <a href="https://github.com/austindickey" target="_blank">Austin Dickey</a>, <a href="https://github.com/JacobTate" target="_blank">Jacob Tate</a>, <a href="https://github.com/d-taylor6403" target="_blank">Dannielle Taylor</a>, and <a href="https://github.com/Conqure" target="_blank"><span>Jacob Walters</span></a></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

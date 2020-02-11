@@ -1,14 +1,8 @@
 /* =================================
             Header
 ================================= */
-header {
+nav {
     height: 75px;
-    background-color: orange;
-    text-align: center;
-}
-
-header p {
-    padding: 25px 0;
 }
 
 /* =================================
@@ -18,48 +12,48 @@ header p {
     text-align: center;
 }
 
-#selectorImages {
-    margin: 50px 15% 0 15%;
-}
-
-#ingredientName,
-#drinkName,
-#randomDrink {
-    width: 200px;
-    height: 200px;
-    background-color: blue;
-    color: orange;
-    padding: 25% 2%;
-}
-
+#ingredientSelectorHolder,
 #drinkSelectorHolder {
-    margin: 75px 10%;
-}
-
-#ingredientInput {
+    margin: 75px 0;
     text-align: left;
-    float: left;
 }
 
-#optionWheel {
-    float: right;
-    width: 30%;
+#randomDrinkHolder {
+    margin: 50px 15% 50px 15%;
 }
 
-#submitOptionButton {
-    
+#ingredientInput,
+#drinkInput {
+    text-align: left;
+    margin: 0 20%;
+}
+
+.optionWheel {
+    margin: 0 20%;
+    width: 50%;
+}
+
+h4 {
+    margin: 0 20%;
+    margin-bottom: 10px;
 }
 
 /* =================================
             Drinks Display
 ================================= */
-#drinkOutput,
-#youtubeVids {
+#drinkOutput {
     padding: 10%;
+    height: 100%;
+}
+
+#youtubeVids {
+    padding: 10% 0;
+    height: 100%;
 }
 
 #drinkOutput {
     background-color: lightblue;
+    text-align: left;
 }
 
 #youtubeVids {
@@ -70,10 +64,14 @@ header p {
             Youtube Display
 ================================= */
 .video, .card{
-    width: 350px;
-    height: 350px;
+    width: 255px;
+    height: 255px;
     float: left;
     margin: 1%;
+}
+
+.video {
+    margin: 10px 0 0 0;
 }
 
 /* =================================
@@ -86,7 +84,7 @@ header p {
             Footer
 ================================= */
 footer {
-    margin-top: 75px;
+    margin-top: 100px;
     height: 75px;
     text-align: center;
     background-color: orange;
@@ -94,4 +92,8 @@ footer {
 
 footer p {
     padding: 25px 0;
+}
+
+footer p span {
+    text-decoration: line-through;
 }
