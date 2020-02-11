@@ -7,6 +7,9 @@ header {
     text-align: center;
 }
 
+header p {
+    padding: 25px 0;
+}
 
 /* =================================
             Body
@@ -15,33 +18,63 @@ header {
     text-align: center;
 }
 
+#selectorImages {
+    margin: 50px 15% 0 15%;
+}
+
+#ingredientName,
+#drinkName,
+#randomDrink {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    color: orange;
+    padding: 25% 2%;
+}
+
+#drinkSelector {
+    margin: 75px 10%;
+}
+
+#ingredientInput {
+    text-align: left;
+    float: left;
+}
+
+#optionWheel {
+    float: right;
+    width: 30%;
+}
+
+#submitOptionButton {
+    
+}
 
 /* =================================
             Drinks Display
 ================================= */
-#drinkDisplay,
+#drinkOutput,
 #youtubeVids {
-    padding: 5%;   
+    padding: 10%;
 }
 
-#ingredientInput {
-    margin: 0 25% 2% 25%;
+#drinkOutput {
+    background-color: lightblue;
 }
 
-#optionWheel {
-    width: 30%;
-    margin: 0 25%;
+#youtubeVids {
+    background-color: red;
 }
 
-
-
+/* =================================
+            Youtube Display
+================================= */
 .video, .card{
     width: 350px;
     height: 350px;
     float: left;
     margin: 1%;
 }
-
 
 /* =================================
             Login Box
@@ -52,3 +85,13 @@ header {
 /* =================================
             Footer
 ================================= */
+footer {
+    margin-top: 75px;
+    height: 75px;
+    text-align: center;
+    background-color: orange;
+}
+
+footer p {
+    padding: 25px 0;
+}
