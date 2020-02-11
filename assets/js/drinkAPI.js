@@ -49,6 +49,7 @@ function searchByIngredient() {
             })
         })
     })
+    $("#ingredientNameInput").val("")
 }
 
 function searchByName() {
@@ -75,6 +76,7 @@ function searchByName() {
 
         $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
     })
+    $("#ingredientNameInput").val("")
 }
 
 function randomDrink() {
@@ -100,6 +102,7 @@ function randomDrink() {
 
         $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
     })
+    $("#ingredientNameInput").val("")
 }
 
 $("#byIngredientSubmit").on("click", function(event){
