@@ -12,16 +12,17 @@ function searchByIngredient() {
         url: ingredientQuery,
         method: "GET"
     }).then(function(ingredientResponse){
+        $("#ingredientDrinkSelector").empty()
         for (var i = 0; i < ingredientResponse.drinks.length; i++) {
             var newOption = $("<option value='" + i + "'>")
             newOption.append(ingredientResponse.drinks[i].strDrink)
-            $("#drinkSelector").append(newOption)
+            $("#ingredientDrinkSelector").append(newOption)
         }
     
-        $("#submitOptionButton").on("click", function(event){
+        $(".goBtn").on("click", function(event){
             event.preventDefault()
     
-            var indexValue = $("#drinkSelector option:selected").val()
+            var indexValue = $("#ingredientDrinkSelector option:selected").val()
             drinkName = ingredientResponse.drinks[indexValue].strDrink
             drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
     
@@ -59,24 +60,53 @@ function searchByName() {
     $.ajax({
         url: drinkNameQuery,
         method: "GET"
-    }).then(function(drinkResponse){
-
-        $("#drinkOutput").empty()
-
-        $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
-        $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
-
-        for (var x = 1; x < 16; x++) {
-            if (drinkResponse.drinks[0]["strIngredient" + x] !== null && drinkResponse.drinks[0]["strMeasure" + x] !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strMeasure" + x] + " of " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
-            } else if (drinkResponse.drinks[0]["strIngredient" + x] !== null) {
-                $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
-            }
+    }).then(function(drinkNameResponse){
+        $("#drinkSelector").empty()
+        
+        for (var i = 0; i < drinkNameResponse.drinks.length; i++) {
+            var newOption = $("<option value='" + i + "'>")
+            newOption.append(drinkNameResponse.drinks[i].strDrink)
+            console.log(drinkNameResponse.drinks[i].strDrink);
+            
+            $("#drinkSelector").append(newOption)
+            console.log(newOption);
+            
         }
+    
+        $(".goBtn").on("click", function(event){
+            event.preventDefault()
 
-        $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+            var indexValue = $("#drinkSelector option:selected").val()
+            drinkName = drinkNameResponse.drinks[indexValue].strDrink
+            drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
+    
+            $.ajax({
+                url: drinkNameQuery,
+                method: "GET"
+            }).then(function(drinkResponse){
+                
+
+            $("#drinkOutput").empty()
+
+            $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
+            $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
+
+            for (var x = 1; x < 16; x++) {
+                if (drinkResponse.drinks[0]["strIngredient" + x] !== null && drinkResponse.drinks[0]["strMeasure" + x] !== null) {
+                    $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strMeasure" + x] + " of " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
+                } else if (drinkResponse.drinks[0]["strIngredient" + x] !== null) {
+                    $("#drinkOutput").append($("<p class='drinkData'>Drink Ingredient" + x + " : " + drinkResponse.drinks[0]["strIngredient" + x] + "</p>"))
+                }
+            }
+
+            $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+            
+            })
+
+        $("#drinkNameInput").val("")
+
+        })
     })
-    $("#ingredientNameInput").val("")
 }
 
 function randomDrink() {
@@ -115,7 +145,7 @@ $("#byDrinkNameSubmit").on("click", function(event){
     searchByName()
 })
 
-$("#randomDrinkSubmit").on("click", function(event){
+$("#randomDrink").on("click", function(event){
     event.preventDefault()
     randomDrink()
 })
