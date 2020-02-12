@@ -2,7 +2,9 @@
 function goBtn(e) {
     e.preventDefault();
     $("#youtubeVids").empty()
-    var searchResult = "how to make " + $(".drinkNameForYoutube").text() + " drink";
+    var drinkName = $(".drinkNameForYoutube")
+    localStorage.setItem("drinkNameForFavorites", drinkName)
+    var searchResult = "how to make " + drinkName.text() + " drink";
     showResults();
 
     //the show results function
