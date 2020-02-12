@@ -3,11 +3,35 @@
 ================================= */
 nav {
     height: 75px;
+    width: 100%;
+}
+
+.sign-upHeader {
+    /* float: left;
+    position: absolute;
+    right: 150px; */
+}
+
+.loginHeader {
+    /* float: left;
+    position: absolute;
+    right: 50px; */
+}
+
+.sign-upHeader,
+.loginHeader,
+.logoutHeader,
+.nameDisplay {
+    margin: 0 10px;
 }
 
 /* =================================
             Body
 ================================= */
+body {
+    background-image: url(../img/bg.png);
+}
+
 .container {
     text-align: center;
 }
@@ -44,20 +68,20 @@ h4 {
 #drinkOutput {
     padding: 10%;
     height: 100%;
+    background-image: url(../img/drinkOutputBg.png);
+    text-align: left;
+    color: #fff;
 }
 
 #youtubeVids {
     padding: 10% 0;
     height: 100%;
+    background-image: url(../img/drinkOutputBg.png);
+    color: #fff;
 }
 
-#drinkOutput {
-    background-color: lightblue;
-    text-align: left;
-}
-
-#youtubeVids {
-    background-color: red;
+#clearfix {
+    height: 200px;
 }
 
 /* =================================
@@ -68,9 +92,15 @@ h4 {
     height: 255px;
     float: left;
     margin: 1%;
+    background-color: #5ea9f5;
 }
 
 .video {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 254px;
+    height: 250px;
     margin: 10px 0 0 0;
 }
 
@@ -86,12 +116,24 @@ h4 {
 footer {
     margin-top: 100px;
     height: 75px;
+    width: 100%;
     text-align: center;
-    background-color: orange;
+    background-color: #343a40;
+    float: left;
+}
+
+footer a {
+    color: #5ea9f5;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #e98502;
 }
 
 footer p {
     padding: 25px 0;
+    color: #fff;
 }
 
 footer p span {
