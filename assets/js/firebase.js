@@ -22,11 +22,12 @@ var firebaseConfig = {
       console.log(user);
     if (user) {
       // User is signed in.
-      $("#user-div").show();
+      
       $("#user-para").show();
       $("#favs").show();
+      $("#login").hide();
       $("#login-div").hide();
-      $("#user-signup").hide();
+      $("#sign-up").hide();
 
       //Checks for currentUser and displays user email address
       var user = auth.currentUser;
@@ -41,10 +42,10 @@ var firebaseConfig = {
 
     } else {
       // No user is signed in.
+      $("#sign-up").show();
+      $("#login").show();
       $("#user-div").hide();
       $("#user-para").hide();
-      $("#user-signup").hide();
-      $("#login-div").hide();
       $("#favs").hide();
     }
   });
@@ -61,6 +62,7 @@ var firebaseConfig = {
 
     $("#login-div").toggle();
   })
+
   //On Favorites button click
   $("#favs").on("click", function(){
 
@@ -124,31 +126,43 @@ var firebaseConfig = {
   //---------------------------------------------------
   //Drink History
 
-  $("#addFavorite").on("click",(cred => {
+  $("#addFavorite").on("click",function() {
+    auth.onAuthStateChanged(function(user){
+      if (user){
+        var drinkName = $(".drinkNameForYoutube")
+        localStorage.setItem("drinkNameForYoutube", drinkName[0].innerText)
 
-    // var userDrink = 'Whiskey Sour';
-    var userDrink = localStorage.getItem("drinkNameForFavorites");
+        
 
-    console.log(userDrink);
+      // Get the existing data
+      var existing = localStorage.getItem('drinkNameForYoutube');
 
-    $("#drinkFavs").text(userDrink);
+      // If no existing data, create an array
+      // Otherwise, convert the localStorage string to an array
+      existing = existing ? existing.split(" , ") : [];
 
-    //Get the existing data
-    var existing = localStorage.getItem('drinkNameForFavorites');
+      // Add new data to localStorage Array
+      existing.push(drinkName.innerText);
 
-    //if no existing data, create an array
-    //otherwise, convert the localStorage string to an array
-    existing = existing ? existing.split(',') : [];
+      // Save back to localStorage
+      localStorage.setItem('drinkNameForYoutube', existing.toString());
 
-    //Add new data to localStorage Array
-    existing.push(userDrink);
+      document.getElementById("drinkFavs").innerHTML = localStorage.drinkNameForYoutube;
 
-    //Save back to localStorage
-    localStorage.setItem('drinkNameForFavorites', existing.toString());
-
-    var newLi = $("<li>")
-    newLi.append(userDrink)
-    $("#userFavorites").append(newLi);
+      }else{
+        $("#user-para").text('Please Sign In To Use Favorites');
+      }
 
 
-  }))
+    })
+
+    
+    
+    
+
+    
+
+    })
+
+
+  
