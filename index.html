@@ -28,11 +28,11 @@
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                      </div>
-                      <div class="form-group">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="inputPassword">
-                      </div>
+                    </div>
               
                       <button id="signup-submit" type="submit" class="btn btn-danger">Submit</button>
                 </form>
@@ -62,6 +62,13 @@
             <!--Name Display-->
             <div class="text-light nameDisplayHeader" id="user-para">
                 <p></p>
+            </div>
+
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="favs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Favorites
+            </button>
+            <div id="usersFavorites">
+                <ul id="drinkFavs"></ul>
             </div>
 
         </nav>
@@ -117,6 +124,14 @@
             <div class="col-md-12">
 
                 <button id="randomDrink" class="btn btn-outline-secondary goBtn">Click for a Random Drink</button>
+
+            </div>
+        </section>
+
+        <section id="addFavoritesHolder" class="row">
+            <div class="col-md-12">
+
+                <button id="addFavorite" class="btn btn-outline-secondary goBtn">Add Drink to Your Favorites</button>
 
             </div>
         </section>
