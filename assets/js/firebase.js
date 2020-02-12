@@ -34,7 +34,7 @@ var firebaseConfig = {
 
         var email_id = user.email;
 
-        $("#user-para").html("Welcome " + email_id);
+        $("#user-para").html("Welcome: " + email_id);
 
       }
 

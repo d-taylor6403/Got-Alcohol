@@ -19,7 +19,7 @@
             <a class="navbar-brand" href="#">Got Alcohol?</a>
 
             <!--Signup Button with Dropdown-->
-            <div class="dropdown">
+            <div class="dropdown sign-upHeader">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sign-up" data-toggle="dropdown">
                   Sign-Up
                 </button>
@@ -39,7 +39,7 @@
             </div>
             
             <!--Login Button with dropdown-->
-            <div class="dropdown">
+            <div class="dropdown loginHeader">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Login
                 </button>
@@ -55,12 +55,12 @@
             </div>
             
             <!--LoggedIn Div-->
-            <div id="user-div" class="loggedin-div">
+            <div id="user-div" class="loggedin-div logoutHeader">
                 <button class="btn btn-secondary " id="logout-submit">Logout</button>
             </div>
 
             <!--Name Display-->
-            <div class="text-light" id="user-para">
+            <div class="text-light nameDisplayHeader" id="user-para">
                 <p></p>
             </div>
 
@@ -139,10 +139,14 @@
 
         </section>
 
+        <section id="clearfix"></section>
+
     </div>
 
-    <footer>
-        <p>Created by: <a href="https://github.com/austindickey" target="_blank">Austin Dickey</a>, <a href="https://github.com/JacobTate" target="_blank">Jacob Tate</a>, <a href="https://github.com/d-taylor6403" target="_blank">Dannielle Taylor</a>, and <a href="https://github.com/Conqure" target="_blank"><span>Jacob Walters</span></a></p>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Created by: <a href="https://github.com/austindickey" target="_blank">Austin Dickey</a>, <a href="https://github.com/JacobTate" target="_blank">Jacob Tate</a>, <a href="https://github.com/d-taylor6403" target="_blank">Dannielle Taylor</a>, and <a href="https://github.com/Conqure" target="_blank"><span>Jacob Walters</span></a></p>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
