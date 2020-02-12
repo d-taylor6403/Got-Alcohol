@@ -3,7 +3,6 @@ function goBtn(e) {
     e.preventDefault();
     $("#youtubeVids").empty()
     var searchResult = "how to make " + $(".drinkNameForYoutube").text() + " drink";
-    console.log(searchResult);
     showResults();
 
     //the show results function
@@ -11,7 +10,6 @@ function goBtn(e) {
      
         //the url for the api call
         var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchResult + "&type=video&maxResults=4&videoDuration=short&key=AIzaSyAbn6xhyx5K-gAjMIqXng_g7S1pSx8XOnQ"
-        console.log(queryURL);
 
         $.ajax({
             //the queryURL from above
@@ -23,15 +21,12 @@ function goBtn(e) {
             
             //results = resp.items
             var results = resp.items
-            console.log(results);
-            console.log(resp);
+
             for (var i = 0; i < results.length; i++) {
 
                 var vidId = results[i].id.videoId;
-                console.log(vidId);
 
                 var title = results[i].snippet.title;
-                console.log(title);
 
                 var card = $("<div>").attr("class", "card")
                 //creates an image tag and stores it

@@ -59,6 +59,12 @@ var firebaseConfig = {
 
     $("#login-div").toggle();
   })
+  //On Favorites button click
+  $("#favs").on("click", function(){
+
+    $("#usersFavorites").toggle();
+  })
+
 
   //---------------------------------------
   //On Sign Up submit button click (Sign up Div)
@@ -116,10 +122,10 @@ var firebaseConfig = {
   //---------------------------------------------------
   //Drink History
 
-  $("#drink-history").on("click",(cred => {
+  $("#addFavorite").on("click",(cred => {
 
-    var userDrink = 'Whiskey Sour';
-    //var userDrink = ("#drinkSelector").val();
+    // var userDrink = 'Whiskey Sour';
+    var userDrink = localStorage.getItem("drinkNameForFavorites");
 
     console.log(userDrink);
 
@@ -138,8 +144,9 @@ var firebaseConfig = {
     //Save back to localStorage
     localStorage.setItem('drink', existing.toString());
 
-
-   $("#drinkList").text(localStorage.getItem("drink"));
+    var newLi = $("<li>")
+    newLi.append(localStorage.getItem("drink"))
+    $("#userFavorites").append(newLi);
 
 
   }))

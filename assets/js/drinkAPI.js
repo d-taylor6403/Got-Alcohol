@@ -30,7 +30,6 @@ function searchByIngredient() {
                 url: drinkNameQuery,
                 method: "GET"
             }).then(function(drinkResponse){
-                console.log(drinkResponse.drinks[0]);
     
                 $("#drinkOutput").empty()
     
@@ -66,10 +65,8 @@ function searchByName() {
         for (var i = 0; i < drinkNameResponse.drinks.length; i++) {
             var newOption = $("<option value='" + i + "'>")
             newOption.append(drinkNameResponse.drinks[i].strDrink)
-            console.log(drinkNameResponse.drinks[i].strDrink);
             
             $("#drinkSelector").append(newOption)
-            console.log(newOption);
             
         }
     
@@ -79,6 +76,7 @@ function searchByName() {
             var indexValue = $("#drinkSelector option:selected").val()
             drinkName = drinkNameResponse.drinks[indexValue].strDrink
             drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
+            localStorage.setItem("drinkNameForFavorites", drinkName)
     
             $.ajax({
                 url: drinkNameQuery,
