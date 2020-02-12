@@ -76,7 +76,6 @@ function searchByName() {
             var indexValue = $("#drinkSelector option:selected").val()
             drinkName = drinkNameResponse.drinks[indexValue].strDrink
             drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
-            localStorage.setItem("drinkNameForFavorites", drinkName)
     
             $.ajax({
                 url: drinkNameQuery,

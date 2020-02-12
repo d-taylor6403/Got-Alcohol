@@ -24,6 +24,7 @@ var firebaseConfig = {
       // User is signed in.
       $("#user-div").show();
       $("#user-para").show();
+      $("#favs").show();
       $("#login-div").hide();
       $("#user-signup").hide();
 
@@ -44,6 +45,7 @@ var firebaseConfig = {
       $("#user-para").hide();
       $("#user-signup").hide();
       $("#login-div").hide();
+      $("#favs").hide();
     }
   });
 
@@ -115,7 +117,7 @@ var firebaseConfig = {
   //On Logout button click (Logout Div)
   $("#logout-submit").on("click", function(){
     auth.signOut();
-    $("#drinkList").empty();
+    $("#drinkFavs").empty();
   })
 
 
@@ -129,10 +131,10 @@ var firebaseConfig = {
 
     console.log(userDrink);
 
-    $("#drinkList").text(userDrink);
+    $("#drinkFavs").text(userDrink);
 
     //Get the existing data
-    var existing = localStorage.getItem('drink');
+    var existing = localStorage.getItem('drinkNameForFavorites');
 
     //if no existing data, create an array
     //otherwise, convert the localStorage string to an array
@@ -142,10 +144,10 @@ var firebaseConfig = {
     existing.push(userDrink);
 
     //Save back to localStorage
-    localStorage.setItem('drink', existing.toString());
+    localStorage.setItem('drinkNameForFavorites', existing.toString());
 
     var newLi = $("<li>")
-    newLi.append(localStorage.getItem("drink"))
+    newLi.append(userDrink)
     $("#userFavorites").append(newLi);
 
 

@@ -6,16 +6,10 @@ nav {
     width: 100%;
 }
 
-.sign-upHeader {
-    /* float: left;
+.navbar-brand {
+    float: right;
     position: absolute;
-    right: 150px; */
-}
-
-.loginHeader {
-    /* float: left;
-    position: absolute;
-    right: 50px; */
+    right: 75px;
 }
 
 .sign-upHeader,
@@ -148,15 +142,26 @@ footer p {
     color: #fff;
 }
 
-footer p span {
-    text-decoration: line-through;
-}
-
 @media (max-width: 650px) {
     nav,
     footer {
         width: 110%;
+        height: 85px;
     }
+
+    .navbar-brand {
+        right: -15px;
+        bottom: -10px;
+    }
+
+    .sign-upHeader,
+    .loginHeader,
+    .logoutHeader,
+    .nameDisplay,
+    #favs {
+        margin: -10px 0 0 0;
+    }
+
     footer p {
         padding: 15px 5%;
         margin-bottom: -40px;
