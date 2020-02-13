@@ -31,7 +31,7 @@ function searchByIngredient() {
                 method: "GET"
             }).then(function(drinkResponse){
     
-                console.log(drinkResponse.drinks[0]);
+                console.log(drinkResponse.drinks);
 
                 $("#drinkOutput").empty()
                 
@@ -48,6 +48,10 @@ function searchByIngredient() {
                 }
     
                 $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+
+                $("#drinkOutput").append("<button id='showVideos' class='btn btn-outline-primary'>Would you like to see videos?</button>")
+
+                $("#youtubeVids").empty()
     
             })
         })
@@ -101,6 +105,10 @@ function searchByName() {
             }
 
             $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+
+            $("#drinkOutput").append("<button id='showVideos' class='btn btn-outline-primary'>Would you like to see videos?</button>")
+
+            $("#youtubeVids").empty()
             
             })
 
@@ -133,6 +141,11 @@ function randomDrink() {
         }
 
         $("#drinkOutput").append($("<p class='drinkData'>Instructions: " + drinkResponse.drinks[0].strInstructions + "</p>"))
+
+        $("#drinkOutput").append("<button id='showVideos' class='btn btn-outline-primary'>Would you like to see videos?</button>")
+
+        $("#youtubeVids").empty()
+
     })
     $("#ingredientNameInput").val("")
 }
