@@ -48,7 +48,7 @@
                         <input type="email" id="email-field" placeholder="Email" />
                         <input type="password" id="password-field" placeholder="Password" />
                         
-                        <button id="login-submit" type="submit" class="btn btn-danger">Login</button>
+                        <button id="login-submit" type="submit" class="btn btn-danger mt-2">Login</button>
                     </div>
                 </form>
             </div>
@@ -58,17 +58,23 @@
                 <button class="btn btn-secondary " id="logout-submit">Logout</button>
             </div>
 
+            <!--User Favorites Div-->
+            <div class="btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="favs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Favorites
+            </button>
+            
+            <div id="usersFavorites" class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                <span class="dropdown-header">My Favorite Drinks</span>
+                <a class="dropdown-item" id="drinkFavs"></a>
+            </div>
+            </div>
+
             <!--Name Display-->
             <div class="text-light nameDisplayHeader" id="user-para">
                 <p></p>
             </div>
 
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="favs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Favorites
-            </button>
-            <div id="usersFavorites">
-                <ul id="drinkFavs"></ul>
-            </div>
 
             <a class="navbar-brand" href="#">Got Alcohol?</a>
 
