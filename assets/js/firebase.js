@@ -25,6 +25,7 @@ var firebaseConfig = {
       
       $("#user-para").show();
       $("#favs").show();
+      $("#logout-submit").show();
       $("#login").hide();
       $("#login-div").hide();
       $("#sign-up").hide();
