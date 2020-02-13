@@ -154,8 +154,8 @@ footer p {
     }
 
     .navbar-brand {
-        right: 0px;
-        bottom: 0px;
+        right: -13px;
+        bottom: -8px;
     }
 
     .sign-upHeader,
@@ -173,6 +173,12 @@ footer p {
 
     .optionWheel {
         width: 78%;
+    }
+
+    #ingredientInput,
+    #drinkInput,
+    .optionWheel {
+        margin: 0 9%;
     }
 
     #randomDrinkHolder,
