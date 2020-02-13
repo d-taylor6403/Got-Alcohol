@@ -25,14 +25,17 @@ function searchByIngredient() {
             var indexValue = $("#ingredientDrinkSelector option:selected").val()
             drinkName = ingredientResponse.drinks[indexValue].strDrink
             drinkNameQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName
-    
+            
             $.ajax({
                 url: drinkNameQuery,
                 method: "GET"
             }).then(function(drinkResponse){
     
+                console.log(drinkResponse.drinks[0]);
+
                 $("#drinkOutput").empty()
-    
+                
+                $("#drinkOutput").append($("<img class='drinkPic' src='" + drinkResponse.drinks[0].strDrinkThumb + "'alt='Drink Picture'>"))
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
                 $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
     
@@ -85,6 +88,7 @@ function searchByName() {
 
             $("#drinkOutput").empty()
 
+            $("#drinkOutput").append($("<img class='drinkPic' src='" + drinkResponse.drinks[0].strDrinkThumb + "'alt='Drink Picture'>"))
             $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
             $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
 
@@ -116,6 +120,7 @@ function randomDrink() {
 
         $("#drinkOutput").empty()
 
+        $("#drinkOutput").append($("<img class='drinkPic' src='" + drinkResponse.drinks[0].strDrinkThumb + "'alt='Drink Picture'>"))
         $("#drinkOutput").append($("<p class='drinkData'>Drink Name: <span class='drinkNameForYoutube'>" + drinkResponse.drinks[0].strDrink + "</span></p>"))
         $("#drinkOutput").append($("<p class='drinkData'>Drink Glass: " + drinkResponse.drinks[0].strGlass + "</p>"))
 
