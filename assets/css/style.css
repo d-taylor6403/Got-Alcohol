@@ -142,16 +142,20 @@ footer p {
     color: #fff;
 }
 
+/* =================================
+        Mobile Responsiveness
+================================= */
+
 @media (max-width: 650px) {
     nav,
     footer {
-        width: 110%;
+        width: 100%;
         height: 85px;
     }
 
     .navbar-brand {
-        right: -15px;
-        bottom: -10px;
+        right: 0px;
+        bottom: 0px;
     }
 
     .sign-upHeader,
@@ -176,7 +180,6 @@ footer p {
     #drinks,
     #vids {
         position: relative;
-        left: 5%;
     }
 
     #vids {
