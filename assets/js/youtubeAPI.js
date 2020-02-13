@@ -1,5 +1,5 @@
 //the click for the search button
-function goBtn(e) {
+function showVideos(e) {
     e.preventDefault();
     $("#youtubeVids").empty()
     var drinkName = $(".drinkNameForYoutube")
@@ -52,4 +52,4 @@ function goBtn(e) {
     }
 
 }
-$(document).on("click", ".goBtn", goBtn);
+$(document).on("click", "#showVideos", showVideos);
