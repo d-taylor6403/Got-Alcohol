@@ -1,4 +1,4 @@
-#Got Alcohol: Pocket Bartender
+# Got Alcohol: Pocket Bartender
 
 Collaborators: Jacob Tate, Dannielle Taylor, Austin Dickey
 
@@ -16,7 +16,7 @@ The app allows the user to do one of 3 things:
 Each of the above options will allow the user to display the drink ingredients, instructions for creating the drink and display 4 YouTube videos for further instruction.
 
 
-#### The app can be viewed here:  https://d-taylor6403.github.io/Professional-Portfolio/
+#### The app can be viewed here:  https://d-taylor6403.github.io/Project1/
 
 --------------------------------------
 
