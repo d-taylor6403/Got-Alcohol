@@ -1,4 +1,4 @@
-#Got Alcohol: Pocket Bartender
+# Got Alcohol: Pocket Bartender
 
 Collaborators: Jacob Tate, Dannielle Taylor, Austin Dickey
 
